@@ -4,16 +4,17 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-  <persistence-unit name="catList">
+  <persistence-unit name="catlist">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
     
-    <class>com.skilldistillery.jpavideostore.entities.</class>
+    <class>com.skilldistillery.JPACats.entities.Cats</class>
+    <class>com.skilldistillery.JPACats.data.catDAO</class>
 
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sdvid?useSSL=false" />
-      <property name="javax.persistence.jdbc.user" value="student"/>
-      <property name="javax.persistence.jdbc.password" value="student" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/catdb?useSSL=false" />
+      <property name="javax.persistence.jdbc.user" value="catuser"/>
+      <property name="javax.persistence.jdbc.password" value="catuser" />
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 
       <property name="hibernate.show_sql" value="false" />
