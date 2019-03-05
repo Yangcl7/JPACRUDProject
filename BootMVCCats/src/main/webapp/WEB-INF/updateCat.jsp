@@ -12,7 +12,7 @@
 
 </head>
 <body>
-<a href=http://localhost:8082/>HOME</a>
+<a href=http://18.216.22.23:8080/BootMVCCats//>HOME</a>
 
 
   <div class="container">

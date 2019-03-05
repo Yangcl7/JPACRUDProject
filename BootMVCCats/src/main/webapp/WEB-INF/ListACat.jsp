@@ -14,7 +14,7 @@
 
 <body>
 
-<a href=http://localhost:8082/>HOME</a>
+<a href=http://18.216.22.23:8080/BootMVCCats//>HOME</a>
   <div class="container">
     <h1 class="display-4">Here Is Your Cat info</h1>
   </div>
