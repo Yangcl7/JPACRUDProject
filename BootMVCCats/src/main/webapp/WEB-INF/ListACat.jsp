@@ -14,6 +14,7 @@
 
 <body>
 
+<a href=http://localhost:8082/>HOME</a>
   <div class="container">
     <h1 class="display-4">Here Is Your Cat info</h1>
   </div>
@@ -34,7 +35,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<th scope="row">1</th>
+				<td>${cat.id}</td>
 				<td>${cat.name}</td>
 				<td>${cat.size}</td>
 				<td>${cat.fur_amount}</td>

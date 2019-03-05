@@ -12,6 +12,7 @@
 
 </head>
 <body>
+	<a href=http://localhost:8082/>HOME</a>
 	
 		<div class="container">
 			<h1 class="display-4">Displaying result</h1>
@@ -27,7 +28,7 @@
 		<div class="alert alert-warning">
   <strong>Warning!</strong> Not Successful.
 </div>
-			<p>No leader found</p>
+			<p>NO Cat were found</p>
 			<a href="WEB-INF/show.jsp">return to main menu</a>
 		</c:otherwise>
 	</c:choose>

@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<a href=http://localhost:8082/>HOME</a>
 
 
   <div class="container">
@@ -38,12 +39,12 @@
 		</thead>
 		<tbody>
 			<tr>
-				<th scope="row">1</th>
+				<td>${cat.id}</td>
 				<td>${cat.name}</td>
 				<td>${cat.size}</td>
 				<td>${cat.fur_amount}</td>
 				<td>${Cat.birth_date}</td>
-				<td>${cat.purchasePrice}</td>
+				<td>${cat.purchase_price}</td>
 				<td>${cat.biography}</td>
 			</tr>
 		</tbody>
