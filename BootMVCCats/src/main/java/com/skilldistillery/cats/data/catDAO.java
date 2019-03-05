@@ -14,5 +14,7 @@ public interface catDAO {
 
 	Boolean deleteCat(int id);
 
+	Cats updateCat(int id, Cats cat);
+
  
 }

@@ -23,8 +23,8 @@ DROP TABLE IF EXISTS `Cats` ;
 CREATE TABLE IF NOT EXISTS `Cats` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
-  `size` VARCHAR(10) NOT NULL,
-  `fur_amount` VARCHAR(10) NULL,
+  `size` VARCHAR(100) NOT NULL,
+  `fur_amount` VARCHAR(100) NULL,
   `birth_date` DATE NULL,
   `purchase_price` DOUBLE NULL,
   `biography` VARCHAR(500) NULL,

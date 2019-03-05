@@ -24,13 +24,15 @@ public class CatDaoImp implements catDAO {
 	
 	@Override
 	public Cats findById(int id) {
+		em = emf.createEntityManager();
+		Cats findCat = em.find(Cats.class, id);
 		
-		
-		return em.find(Cats.class, id);
+		return findCat;
 	}
 	
 	@Override
 	public Cats addCat(Cats cats) {
+		em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(cats);
 		em.flush();
@@ -56,12 +58,30 @@ public class CatDaoImp implements catDAO {
 		em.getTransaction().begin();
 		em.remove(cat);
 		em.getTransaction().commit();
+		System.out.println(cat.getId());
 		boolean result = !em.contains(cat);
 		
 		return result;
 		
 		
 	}
+	@Override
+	public Cats updateCat(int id, Cats cat) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("catlist");
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		Cats c = em.find(Cats.class, id);
+		c.setName(cat.getName());
+		c.setSize(cat.getSize());
+		c.setFur_amount(cat.getFur_amount());
+		c.setBirthDate(cat.getBirthDate());
+		c.setPurchasePrice(cat.getPurchasePrice());
+		c.setBiography(cat.getBiography());
+
+		em.getTransaction().commit();
+		return c;
+	}
+	
 
 	
 }

@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <!-- Template by quackit.com -->
 <html>
@@ -33,11 +37,6 @@
 			margin-left: -100%;
 		}
 		
-		#right {
-			width: 130px;
-			padding: 0 10px;
-			margin-right: -100%;
-		}
 		
 		#footer {
 			clear: both;
@@ -125,23 +124,17 @@
 
 	<header id="header" style= color:darkred><h2>Kat Cat home of the Kittie cats</h2></header>
 
-	<div id="container">
+	<div id="container" >
 
 		<main id="center" class="column">
 			<article>
 			
-				<h1>Heading</h1>
+				<h1>Look up a cat by:</h1>
 				
               <form action="getCat.do" method="GET">
-        Cat ID: <input type="text" name="fid" /> <input type="submit" class="btn btn-primary"
+        Cat ID: <input type="number" name="fid" /> <input type="submit" class="btn btn-primary"
             value="Show Cats" /></form>
-              
-              <form action="listACat.do" method="GET">
-    	List a cat: <input type="text" name="fid" /> <input type="submit" class="btn btn-primary"
-    		value="ListACat" />
-    </form>
-              
-              
+                         
 			
 			</article>								
 		</main>
@@ -159,10 +152,6 @@
 
 		</nav>
 
-		<div id="right" class="column">
-			<h3>Right heading</h3>
-			<p><script>generateText(1)</script></p>
-		</div>
 
 	</div>
 

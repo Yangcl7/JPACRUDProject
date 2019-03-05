@@ -22,11 +22,8 @@ public class CatController {
 	@Autowired
 	private catDAO dao;
 
-	@RequestMapping(path = "/")
-	public String index(Model model) {
-		List<Cats> catList = dao.allCats();
-		model.addAttribute("allCats", catList);
-
+	@RequestMapping(path = "/", method = RequestMethod.GET)
+	public String index() {
 		return "WEB-INF/index.jsp";
 	}
 
@@ -39,32 +36,51 @@ public class CatController {
 		// DAO
 
 		mv.addObject("cat", cats);
-		mv.setViewName("WEB-INF/show/show.jsp");
+		mv.setViewName("WEB-INF/ListACat.jsp");
 		return mv;
 	}
 
-	@RequestMapping(path = "listACat.do", method = RequestMethod.GET)
+	@RequestMapping(path = "listingCat.do", params = {"catId" }, method = RequestMethod.POST)
 	public ModelAndView listACat(Cats cats) {
 		ModelAndView mv = new ModelAndView();
-
 		dao.addCat(cats);
-		mv.addObject("cat", cats);
-		mv.setViewName("WEB-INF/show/show.jsp");
+		mv.addObject("catId", cats);
+		mv.setViewName("WEB-INF/ListACat.jsp");
 		return mv;
-	}
-	@RequestMapping(path = "deleteCat.do", method = RequestMethod.GET)
-	public Boolean deleteCat(int id) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("catlist");
-		EntityManager em = emf.createEntityManager();
-		Cats cats= em.find(Cats.class, id);
-		
-		em.getTransaction().begin ();
-		em.remove(cats);
-		em.getTransaction().commit();
-		boolean result = !em.contains(cats);
-		em.close();
-		return result;
 		
 	}
+	@RequestMapping(path = "deleteCat.do", method = RequestMethod.POST)
+	public ModelAndView deleteCat(@RequestParam(value = "catId")int id) {
+		ModelAndView mv = new ModelAndView();
+		
+		boolean test = dao.deleteCat(id);
+		mv.addObject("catId", test);
+		mv.setViewName("WEB-INF/deleteCat.jsp");
+		return mv;
+		
+	}
+	@RequestMapping(path = "updateCat.do", params = { "catId" }, method = RequestMethod.POST)
+	public ModelAndView updateCat(@RequestParam("catId") int id, Cats updateCat) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println(updateCat);
+		System.out.println("Cat id is " + id);
+		
+		Cats c = dao.updateCat(id, updateCat);
+
+		mv.addObject("catId", c);
+		mv.setViewName("WEB-INF/updateCat.jsp");
+		return mv;
+
+	}
+	@RequestMapping(path = "addCat.do", params = { "catId" }, method = RequestMethod.POST)
+	public ModelAndView addCat(Cats cat) {
+		ModelAndView mv = new ModelAndView();
+		dao.addCat(cat);
+		mv.addObject("cat", cat);
+		mv.setViewName("WEB-INF/newCat.jsp");
+		return mv;
+
+	}
+	
 
 }
