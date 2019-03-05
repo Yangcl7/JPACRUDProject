@@ -8,9 +8,7 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
     
-    <class>com.skilldistillery.JPACats.entities.Cats</class>
-    <class>com.skilldistillery.JPACats.data.catDAO</class>
-
+	<class>com.skilldistillery.JPACats.entities.Cats</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/catdb?useSSL=false" />
       <property name="javax.persistence.jdbc.user" value="catuser"/>

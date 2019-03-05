@@ -1,17 +1,20 @@
 package com.skilldistillery.cats.entities;
 
 import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.junit.Test;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import com.skilldistillery.JPACats.entities.Cats;
 
@@ -42,7 +45,16 @@ class CatTest {
 		em.close();
 	}
 	@Test
-	public void find_a_cat_by_its_id() {
+	public void test_find_a_cat_by_its_id() {
+		
+		assertEquals("Tom", cat.getName());
+		
+	}
+	@Test
+	public void test_find_all_cats(){
+		String qur = "SELECT c FROM Cats c";
+		List<Cats> cats = em.createQuery(qur, Cats.class).getResultList();
+		assertEquals(6, cats.size());
 		
 	}
 

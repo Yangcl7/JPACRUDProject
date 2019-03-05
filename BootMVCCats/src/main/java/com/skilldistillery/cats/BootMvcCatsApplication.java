@@ -7,7 +7,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-@EntityScan("com.skilldistillery.cats.data")
+@EntityScan("com.skilldistillery.JPACats")
 public class BootMvcCatsApplication extends SpringBootServletInitializer {
 	  @Override
 	  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
